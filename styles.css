@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "BNPooly";
+    src: url("./fonts/BNPOOLY-ROUNDED.OTF") format("opentype");
+}
+@font-face {
+    font-family: "VarelaRound" ;
+    src: url("./fonts/VarelaRound-Regular.ttf") format("truetype");
+}
+
+header {display: flex; background-color: #D57D39; 
+        margin: 0; padding: 10px; text-align: right;
+}
+body { background-color: #F9F4E4; margin: 0; padding: 0;
+}
+footer {
+    background-color: #EABA58;
+    text-align: right; 
+    padding: 1px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+.navitext {display: flex; justify-content:right; text-align: right;}
+.footer {margin-right: 20px;}
