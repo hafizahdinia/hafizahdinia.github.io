@@ -1,36 +1,360 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebPortoTest</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <title>Web Saya</title>
+    <style>
+
+    </style>
+
+
+
 </head>
+    <link rel="stylesheet" href="styles.css">
+<body oncontextmenu="return false">
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeVideoModal">&times;</button>
+            <video class="modal-video" id="expandedVideo" controls autoplay></video>
+        </div>
+    </div>
 
-<style>
-    h1 { font-family: "BNPooly"; font-size: 800%; color: #22312b;
-        line-height: 0.01; margin-left: 20px;;
-    }
-    p { font-family: "VarelaRound"; font-size: 20px; color: #22312b;
-        line-height: 0.5; margin-left: 20px; margin-right: 20px}
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeImageModal">&times;</button>
+            <div class="protection-layer"></div>
+            <img class="modal-image" id="expandedImage" src="" alt="Expanded Image">
+        </div>
+    </div>
 
-</style>
-<header>
-    <div><p class="navitext">Home</p></div>
-    <div><p class="navitext">Gallery</p></div>
-    <div><p class="navitext">Category</p></div>
-    <div><p class="navitext">About</p></div>
-</header>
+    <div class="container">
+        <!-- Header -->
+        <header>
 
-<body>
-    <h1>Hello!</h1>
-    <p>Something bad? Something okayish? Something amazing?</p>
-    <p>Nobody knows!</p>
+            <nav class="navbar">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#report">Report</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </header>
+
+        <section class="welcome" id="home">
+            <h1>Halo!</h1>
+            <h1>Selamat Datang di Web Saya!</h1>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about" id="about">
+            <div class="about-image" id="profile-image">
+                <!-- Placeholder for profile image -->
+            </div>
+            <div class="about-content">
+                <h1>About Me</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, 
+                    vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus,
+                    ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui.</p>
+                <p>Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery" id="gallery">
+            <h1>Gallery</h1>
+            <h3>Gambar</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item lazy-image" data-src="./assets/Snowywatch.jpg">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/feixiao.png">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/ASIRENE.jpg">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/IreneA.jpg">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/M7M.jpg">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/IreneB.jpg">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/HuTao.png">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/pudicitia.jpg">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/ayato.webp">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <h3>Video</h3>
+            <div class="video-grid">
+                <div class="video-item lazy-video" data-src="./assets/green.mp4">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">MP4</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/CC.swf">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">SWF</div>
+                </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Header Items Section -->
+        <section class="header-section">
+            <h3>Fonts</h3>
+            <div class="header-item">
+                <h3 id="T1">Header</h3>
+                <p id="D1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T2">Header</h3>
+                <p id="D2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T3">Header</h3>
+                <p id="D3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+        </section>
+
+        <section class="audio-section">
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="./assets/sampleaudio.mp3">
+            </audio>
+        </section>
+
+        <section class="report" id="report">
+            <h1>Report</h1>
+            <a href="./assets/Laporan_Hafizah Dini Aqila.docx">Laporan Hafizah Dini Aqila</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <h1>Contact</h1>
+            <a href="https://www.instagram.com/hfzh.aqila/">Instagram</a>
+        </section>
+    </div>
+
+    <footer style="border-top: 1px; border-color: #656D73;">
+        <div><h4 style="font-size: 12px; text-align: center; padding: 5px;">Hafizah Dini Aqila</h3></div>
+    </footer>
+
+    <script>
+
+        function toggleMenu() {
+        const nav = document.querySelector("nav");
+        nav.classList.toggle("show");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Disable right click on entire page
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            
+            // Disable keyboard shortcuts for saving 
+            document.addEventListener('keydown', function(e) {
+                // Prevent Ctrl+S, Ctrl+U, Ctrl+P, F12
+                if ((e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p')) || e.key === 'F12') {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            
+            // Variables for video modal
+            const videoModal = document.getElementById('videoModal');
+            const expandedVideo = document.getElementById('expandedVideo');
+            const closeVideoModal = document.getElementById('closeVideoModal');
+            
+            // Variables for image modal
+            const imageModal = document.getElementById('imageModal');
+            const expandedImage = document.getElementById('expandedImage');
+            const closeImageModal = document.getElementById('closeImageModal');
+            
+            // Set up click event for each video item
+            document.querySelectorAll('.video-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Get video source
+                    const videoSrc = this.getAttribute('data-src');
+                    
+                    // Set video source in modal
+                    expandedVideo.src = videoSrc;
+                    
+                    // Show modal
+                    videoModal.classList.add('active');
+                    
+                    // Play video
+                    expandedVideo.play();
+                });
+            });
+            
+            // Set up click event for each gallery item
+            // Set up click event for each gallery item
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Get image source
+                    const imageSrc = this.getAttribute('data-src');
+                    
+                    // Set image source in modal
+                    expandedImage.src = imageSrc;
+                    
+                    // Show modal with animation
+                    imageModal.style.display = 'flex';
+                    
+                    // Force reflow to ensure animation plays
+                    void imageModal.offsetWidth;
+                    
+                    // Add active class (triggers animation)
+                    imageModal.classList.add('active');
+                });
+            });
+
+            // Set up click event for each video item
+            document.querySelectorAll('.video-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Get video source
+                    const videoSrc = this.getAttribute('data-src');
+                    
+                    // Set video source in modal
+                    expandedVideo.src = videoSrc;
+                    
+                    // Show modal with animation
+                    videoModal.style.display = 'flex';
+                    
+                    // Force reflow to ensure animation plays
+                    void videoModal.offsetWidth;
+                    
+                    // Add active class (triggers animation)
+                    videoModal.classList.add('active');
+                    
+                    // Play video
+                    expandedVideo.play();
+                });
+            });
+            
+            // Close video modal
+// Fungsi untuk animasi menutup modal
+function closeModalWithAnimation(modal, callback) {
+    // Animasi fade out background
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0)';
     
-</body>
-<footer>
-    <p class="footer">&copy; 2025 --</p>
-</footer>
-</html>
+    // Animasi zoom out content
+    const modalContent = modal.querySelector('.modal-content');
+    modalContent.style.animation = 'none';
+    modalContent.style.transform = 'scale(0.8)';
+    modalContent.style.opacity = '0';
+    modalContent.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    
+    // Tunggu animasi selesai kemudian lakukan callback
+    setTimeout(() => {
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+        
+        // Reset style
+        modal.style.backgroundColor = '';
+        modalContent.style.transform = '';
+        modalContent.style.opacity = '';
+        modalContent.style.transition = '';
+        modalContent.style.animation = '';
+        
+        // Jalankan callback jika ada
+        if (callback) callback();
+    }, 300);
+}
 
+// Close video modal
+closeVideoModal.addEventListener('click', function() {
+    closeModalWithAnimation(videoModal, () => {
+        expandedVideo.pause();
+        expandedVideo.src = '';
+    });
+});
+
+// Close image modal
+closeImageModal.addEventListener('click', function() {
+    closeModalWithAnimation(imageModal);
+});
+
+// Close modals when clicking outside content
+videoModal.addEventListener('click', function(e) {
+    if (e.target === videoModal) {
+        closeModalWithAnimation(videoModal, () => {
+            expandedVideo.pause();
+            expandedVideo.src = '';
+        });
+    }
+});
+
+imageModal.addEventListener('click', function(e) {
+    if (e.target === imageModal) {
+        closeModalWithAnimation(imageModal);
+    }
+});
+            
+            // Intersection Observer for lazy loading images
+            const lazyLoader = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        // Check if it's an image placeholder
+                        if (element.classList.contains('lazy-image')) {
+                            element.style.backgroundImage = `url(${element.dataset.src})`;
+                            element.classList.add('loaded');
+                            observer.unobserve(element);
+                        } else if (element.classList.contains('lazy-video')) {
+                            // For video thumbnails, we use a thumbnail image
+                            element.style.backgroundImage = `url(thumbnail-${element.dataset.src.replace('.mp4', '.jpg')})`;
+                            element.classList.add('loaded');
+                            observer.unobserve(element);
+                        }
+                    }
+                });
+            }, {
+                rootMargin: '200px',
+                threshold: 0.1
+            });
+            
+            // Observe all lazy-loading elements
+            document.querySelectorAll('.lazy-image, .lazy-video').forEach(element => {
+                lazyLoader.observe(element);
+            });
+            
+            // Disable drag on all images to prevent saving
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('dragstart', function(e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
