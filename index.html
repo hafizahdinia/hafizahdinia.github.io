@@ -350,21 +350,26 @@
             
             // Set up click event for each video item
             document.querySelectorAll('.video-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    // Get video source
-                    const videoSrc = this.getAttribute('data-src');
-                    
-                    // Set video source in modal
-                    expandedVideo.src = videoSrc;
-                    
-                    // Show modal
-                    videoModal.classList.add('active');
-                    
-                    // Play video
-                    expandedVideo.play();
-                });
+            item.addEventListener('click', function() {
+                // Get video source
+                const videoSrc = this.getAttribute('data-src');
                 
+                // Set video source in modal
+                expandedVideo.src = videoSrc;
+                
+                // Show modal with animation
+                videoModal.style.display = 'flex';
+                
+                // Force reflow to ensure animation plays
+                void videoModal.offsetWidth;
+                
+                // Add active class (triggers animation)
+                videoModal.classList.add('active');
+                
+                // Play video
+                expandedVideo.play();
             });
+        });
             
             // Set up click event for each gallery item
             document.querySelectorAll('.gallery-item').forEach(item => {
@@ -503,7 +508,7 @@ imageModal.addEventListener('click', function(e) {
 });
             
             // Intersection Observer for lazy loading images
-            const lazyLoader = new IntersectionObserver((entries, observer) => {
+                const lazyLoader = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const element = entry.target;
@@ -514,8 +519,24 @@ imageModal.addEventListener('click', function(e) {
                             element.classList.add('loaded');
                             observer.unobserve(element);
                         } else if (element.classList.contains('lazy-video')) {
-                            // For video thumbnails, we use a thumbnail image
-                            element.style.backgroundImage = `url(thumbnail-${element.dataset.src.replace('.mp4', '.jpg')})`;
+                            // Create video element for preview
+                            const videoPreview = document.createElement('video');
+                            videoPreview.className = 'video-preview';
+                            videoPreview.src = element.dataset.src;
+                            videoPreview.preload = 'metadata';
+                            videoPreview.muted = true;
+                            videoPreview.loop = false;
+                            videoPreview.autoplay = false;
+                            
+                            // Add video preview to the item
+                            element.appendChild(videoPreview);
+                            
+                            // Keep play icon visible
+                            const playIcon = element.querySelector('.play-icon');
+                            if (playIcon) {
+                                playIcon.style.display = 'flex';
+                            }
+                            
                             element.classList.add('loaded');
                             observer.unobserve(element);
                         }
@@ -541,6 +562,21 @@ imageModal.addEventListener('click', function(e) {
             link.click();
         }
 });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Tambahkan judul ke setiap item galeri berdasarkan ekstensi file
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                const fileSrc = item.getAttribute('data-src');
+                const fileExt = fileSrc.split('.').pop().toUpperCase();
+                
+                // Buat elemen judul
+                const infoElement = document.createElement('div');
+                infoElement.className = 'gallery-info';
+                infoElement.textContent = fileExt;
+                
+                // Tambahkan ke item galeri
+                item.appendChild(infoElement);
+            });
+        });
     </script>
 </body>
 </html>

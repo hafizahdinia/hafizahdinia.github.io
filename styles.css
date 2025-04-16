@@ -257,6 +257,31 @@ h1{
     background-color: white;
     color: black;
     padding: 10px;
+    z-index: 5; /* Nilai lebih tinggi dari video-preview dan protection-layer */
+    pointer-events: none; /* Agar tetap bisa mengklik video di belakangnya */
+}
+
+/* Style untuk video preview */
+.video-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    pointer-events: none; /* Mencegah interaksi dengan video */
+    z-index: 1;
+}
+
+/* Pastikan play icon tetap terlihat di atas video */
+.play-icon {
+    z-index: 2;
+}
+
+/* Lapisan protection tetap di atas video */
+.protection-layer {
+    z-index: 3;
 }
 
 .audio-section{
