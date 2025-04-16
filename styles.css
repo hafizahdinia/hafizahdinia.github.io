@@ -7,31 +7,47 @@
     src: url("./fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
 }
 @font-face {
-    font-family: "AlfaSlabOne" ;
-    src: url("./fonts/ALFASLABONE-REGULAR.TTF") format("truetype");
+    font-family: "Helvetica" ;
+    src: url("./fonts/Helvetica.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Roboto" ;
+    src: url("./fonts/ROBOTO-REGULAR.TTF") format("truetype");
+}
+
+@font-face {
+    font-family: "TimesNewRoman" ;
+    src: url("./fonts/TIMES.TTF") format("opentype");
+}
+
+@font-face {
+    font-family: "Bodoni" ;
+    src: url("./fonts/BOD_B.TTF") format("truetype");
 }
 @font-face {
     font-family: "Garamond" ;
     src: url("./fonts/GARA.TTF") format("truetype");
 }
-@font-face {
-    font-family: "Willump" ;
-    src: url("./fonts/WILLUMP.OTF") format("opentype");
-}
-@font-face {
-    font-family: "WorkSansI" ;
-    src: url("./fonts/WORKSANS-ITALIC-VARIABLEFONT_WGHT.TTF") format("truetype");
-}
+
 @font-face {
     font-family: "Futura" ;
     src: url("./fonts/Futura.TTF") format("truetype");
 }
+
+
 @font-face {
-    font-family: "StrongConcrete" ;
-    src: url("./fonts/STRONGCONCRETE-BOLD.OTF") format("opentype");
+    font-family: "Baskerville" ;
+    src: url("./fonts/BASKVILL.TTF") format("truetype");
+}
+@font-face {
+    font-family: "Verdana" ;
+    src: url("./fonts/VERDANA.TTF") format("truetype");
 }
 
-
+@font-face {
+    font-family: "Rockwell" ;
+    src: url("./fonts/ROCK.TTF") format("opentype");
+}
 
 /*universal*/
 * {
@@ -253,6 +269,8 @@ h1{
     position: relative; /* For modal positioning */
 }
 
+
+
 /* Animasi Zoom In */
 @keyframes zoomIn {
     from {
@@ -316,8 +334,7 @@ h1{
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     display: block;
     margin: 0 auto;
-    /* Prevent right-click saving */
-    pointer-events: none;
+
 }
 
 .close-modal {
@@ -395,14 +412,35 @@ h1{
     border-top: 1px solid rgba(255, 255, 255, 0.1); /* Add subtle separator */
 }
 
-#T1 {font-family: Georgia; font-size: 30px;}
-#D1 {font-family: 'WorkSansI';}
+#T1 {font-family: 'Helvetica'; font-size: 30px;}
+#D1 {font-family: 'Helvetica';}
 
-#T2 {font-family: 'Willump'; font-size: 30px}
-#D2 {font-family: 'Garamond';}
+#T2 {font-family: 'Roboto'; font-size: 30px}
+#D2 {font-family: 'Roboto';}
 
-#T3 {font-family: 'StrongConcrete'; font-size: 30px;}
-#D3 {font-family: 'Futura';}
+#T3 {font-family: 'TimesNewRoman'; font-size: 30px;}
+#D3 {font-family: 'TimesNewRoman';}
+
+#T4 {font-family: Georgia; font-size: 30px;}
+#D4 {font-family: Georgia;}
+
+#T5 {font-family: 'Bodoni'; font-size: 30px;}
+#D5 {font-family: 'Bodoni';}
+
+#T6 {font-family: 'Garamond'; font-size: 30px;}
+#D6 {font-family: 'Garamond';}
+
+#T7 {font-family: 'Baskerville'; font-size: 30px;}
+#D7 {font-family: 'Baskerville';}
+
+#T8 {font-family: Verdana; font-size: 30px;}
+#D8 {font-family: Verdana;}
+
+#T9 {font-family: 'Futura'; font-size: 30px;}
+#D9 {font-family: 'Futura';}
+
+#T10 {font-family: 'Rockwell'; font-size: 30px;}
+#D10 {font-family: 'Rockwell';}
 
 .header-item {
     background-color: rgba(255, 255, 255, 0.1);
@@ -416,7 +454,7 @@ h1{
     margin-bottom: 0; /* Remove gap for last item */
 }
 
-.report {
+.raport {
     background-color: #ff8c3a;
     padding: 20px;
     transition: transform 0.3s ease;
@@ -439,16 +477,6 @@ h1{
 
 .lazy-image.loaded, .lazy-video.loaded {
     opacity: 1;
-}
-
-/* Image protection layer - prevents saving */
-.protection-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
 }
 
 /* PHONE */

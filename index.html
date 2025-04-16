@@ -13,7 +13,7 @@
 
 </head>
     <link rel="stylesheet" href="styles.css">
-<body oncontextmenu="return false">
+<body>
     <!-- Video Modal -->
     <div class="modal" id="videoModal">
         <div class="modal-content">
@@ -39,7 +39,7 @@
               <a href="#home">Home</a>
               <a href="#about">About</a>
               <a href="#gallery">Gallery</a>
-              <a href="#report">Report</a>
+              <a href="#raport">Report</a>
               <a href="#contact">Contact</a>
             </nav>
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -67,39 +67,43 @@
             <h1>Gallery</h1>
             <h3>Gambar</h3>
             <div class="gallery-grid">
-                <div class="gallery-item lazy-image" data-src="./assets/Snowywatch.jpg">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.jpg">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/feixiao.png">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.png">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/ASIRENE.jpg">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.bmp">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/IreneA.jpg">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.gif">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/M7M.jpg">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.svg">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/IreneB.jpg">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.webp">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/HuTao.png">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.heic">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/pudicitia.jpg">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.psd">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
-                <div class="gallery-item lazy-image" data-src="./assets/ayato.webp">
+                <div class="gallery-item lazy-image" data-src="./assets/graphic.tif">
+                    <div class="protection-layer"></div>
+                    <div class="expand-icon"></div>
+                </div>
+                <div class="gallery-item lazy-image" data-src="./assets/raw.dng">
                     <div class="protection-layer"></div>
                     <div class="expand-icon"></div>
                 </div>
@@ -113,13 +117,52 @@
                 <div class="video-item lazy-video" data-src="./assets/green.mp4">
                     <div class="protection-layer"></div>
                     <div class="play-icon"></div>
-                    <div class="video-info">Hijau</div>
+                    <div class="video-info">MP4</div>
                 </div>
-                <div class="video-item lazy-video" data-src="./assets/cc.mp4">
+                <div class="video-item lazy-video" data-src="./assets/green.mov">
                     <div class="protection-layer"></div>
                     <div class="play-icon"></div>
-                    <div class="video-info">Mengenai Creative Commons</div>
+                    <div class="video-info">MOV</div>
                 </div>
+                <div class="video-item lazy-video" data-src="./assets/green.webm">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">webm</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.avi">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">AVI</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.3gp">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">3GP</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.mkv">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">MKV</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.flv">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">FLV</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.mpeg">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">MPG</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.wmv">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">WMV</div>
+                </div>
+                <div class="video-item lazy-video" data-src="./assets/green.avchd.mts">
+                    <div class="protection-layer"></div>
+                    <div class="play-icon"></div>
+                    <div class="video-info">AVCHD</div>
                 </div>
             </div>
         </section>
@@ -128,29 +171,151 @@
         <section class="header-section">
             <h3>Fonts</h3>
             <div class="header-item">
-                <h3 id="T1">Header</h3>
+                <h3 id="T1">Helvetica</h3>
                 <p id="D1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
             </div>
             <div class="header-item">
-                <h3 id="T2">Header</h3>
+                <h3 id="T2">Roboto</h3>
                 <p id="D2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
             </div>
             <div class="header-item">
-                <h3 id="T3">Header</h3>
+                <h3 id="T3">Times New Roman</h3>
                 <p id="D3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
             </div>
+            <div class="header-item">
+                <h3 id="T4">Georgia</h3>
+                <p id="D4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T5">Bodoni</h3>
+                <p id="D5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T6">Garamond</h3>
+                <p id="D6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T7">Baskerville</h3>
+                <p id="D7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T8">Verdana</h3>
+                <p id="D8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T9">Futura</h3>
+                <p id="D9">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
+            <div class="header-item">
+                <h3 id="T10">Rockwell</h3>
+                <p id="D10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id.</p>
+            </div>
         </section>
+        
 
         <section class="audio-section">
             <h3>Audio</h3>
-            <audio controls>
-                <source src="./assets/sampleaudio.mp3">
-            </audio>
-        </section>
+                <p>MP3</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.mp3">
+                </audio>
+                <p>M4A</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.m4a">
+                </audio>
+                <p>FLAC</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.flac">
+                </audio>
+                <p>OGG</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.ogg">
+                </audio>
+                <p>WAV</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.wav">
+                </audio>
+                <p>AAC</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.aac">
+                </audio>
+                <p>PCM</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.pcm">
+                </audio>
+                <p>AIFF</p>
+                <audio controls>
+                    <source src="./assets/sampleaudio.aiff">
+                </audio>
+                <p>ALAC</p>
+                <audio controls>
+                    <source src="./assets/sample.alac">
+                </audio>
+                <p>MP4</p>
+                <audio controls>
+                    <source src="./assets/sample.mp4">
+                </audio>
+            </section>
+        
+            <section class="video-section">
+                <h3>Animation</h3>
+                <div class="video-grid">
+                    <div class="video-item lazy-video" data-src="./assets/animation/StopMotion.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Stop Motion Animation (by Bips)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/2D.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">2D Animation (by Board Studios)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/3Danimation.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">3D Animation (by Trial Exhibits, Inc)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/Anime.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Anime (by Evakoi)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/cel.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Cell Animation (by Jacob Docksey)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/frame.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Frame Animation (by polyolk)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/Sprite.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Sprite Animation (by Maple Riot)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/Path.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Path Animation (by reallusion)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/vector.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Vector Animation (by BoneHaus)</div>
+                    </div>
+                    <div class="video-item lazy-video" data-src="./assets/animation/character.mp4">
+                        <div class="protection-layer"></div>
+                        <div class="play-icon"></div>
+                        <div class="video-info">Character Animation (by BaM Animation)</div>
+                    </div>
+                </div>
+            </section>
 
-        <section class="report" id="report">
+        <section class="raport" id="raport">
             <h1>Report</h1>
-            <a href="./assets/Laporan_Hafizah Dini Aqila.docx">Laporan Hafizah Dini Aqila</a>
+            <a href="./assets/Laporan_Hafizah Dini Aqila.pdf">Laporan Hafizah Dini Aqila</a>
         </section>
 
         <!-- Contact Section -->
@@ -172,21 +337,7 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            // Disable right click on entire page
-            document.addEventListener('contextmenu', function(e) {
-                e.preventDefault();
-                return false;
-            });
-            
-            // Disable keyboard shortcuts for saving 
-            document.addEventListener('keydown', function(e) {
-                // Prevent Ctrl+S, Ctrl+U, Ctrl+P, F12
-                if ((e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p')) || e.key === 'F12') {
-                    e.preventDefault();
-                    return false;
-                }
-            });
-            
+                      
             // Variables for video modal
             const videoModal = document.getElementById('videoModal');
             const expandedVideo = document.getElementById('expandedVideo');
@@ -257,7 +408,41 @@
                     expandedVideo.play();
                 });
             });
-            
+                // Tambah click download untuk gallery image
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    item.addEventListener('contextmenu', function(e) {
+                        e.preventDefault();
+                        const fileSrc = this.getAttribute('data-src');
+                        const link = document.createElement('a');
+                        link.href = fileSrc;
+                        link.download = fileSrc.substring(fileSrc.lastIndexOf('/') + 1);
+                        link.click();
+                    });
+                });
+
+                // Tambah click download untuk video item
+                document.querySelectorAll('.video-item').forEach(item => {
+                    item.addEventListener('contextmenu', function(e) {
+                        e.preventDefault();
+                        const fileSrc = this.getAttribute('data-src');
+                        const link = document.createElement('a');
+                        link.href = fileSrc;
+                        link.download = fileSrc.substring(fileSrc.lastIndexOf('/') + 1);
+                        link.click();
+                    });
+                });
+
+                /*del kalo ngerusak*/
+                document.querySelectorAll('audio source').forEach(source => {
+                source.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const link = document.createElement('a');
+                    link.href = this.src;
+                    link.download = this.src.substring(this.src.lastIndexOf('/') + 1);
+                    link.click();
+                    });
+                })
+                        
             // Close video modal
 // Fungsi untuk animasi menutup modal
 function closeModalWithAnimation(modal, callback) {
@@ -345,14 +530,17 @@ imageModal.addEventListener('click', function(e) {
             document.querySelectorAll('.lazy-image, .lazy-video').forEach(element => {
                 lazyLoader.observe(element);
             });
-            
-            // Disable drag on all images to prevent saving
-            document.querySelectorAll('img').forEach(img => {
-                img.addEventListener('dragstart', function(e) {
-                    e.preventDefault();
-                });
-            });
+                       
         });
+        document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('download-audio-btn')) {
+            const audioSrc = e.target.getAttribute('data-src');
+            const link = document.createElement('a');
+            link.href = audioSrc;
+            link.download = audioSrc.substring(audioSrc.lastIndexOf('/') + 1);
+            link.click();
+        }
+});
     </script>
 </body>
 </html>
