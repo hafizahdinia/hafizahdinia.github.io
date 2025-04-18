@@ -18,7 +18,7 @@
     <div class="modal" id="videoModal">
         <div class="modal-content">
             <button class="close-modal" id="closeVideoModal">&times;</button>
-            <video class="modal-video" id="expandedVideo" controls autoplay></video>
+            <video class="modal-video" id="expandedVideo" controls autoplay loop></video>
         </div>
     </div>
 
@@ -216,43 +216,43 @@
         <section class="audio-section">
             <h3>Audio</h3>
                 <p>MP3</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.mp3">
                 </audio>
                 <p>M4A</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.m4a">
                 </audio>
                 <p>FLAC</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.flac">
                 </audio>
                 <p>OGG</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.ogg">
                 </audio>
                 <p>WAV</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.wav">
                 </audio>
                 <p>AAC</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.aac">
                 </audio>
                 <p>PCM</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.pcm">
                 </audio>
                 <p>AIFF</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sampleaudio.aiff">
                 </audio>
                 <p>ALAC</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sample.alac">
                 </audio>
                 <p>MP4</p>
-                <audio controls>
+                <audio controls loop>
                     <source src="./assets/sample.mp4">
                 </audio>
             </section>
@@ -260,55 +260,10 @@
             <section class="video-section">
                 <h3>Animation</h3>
                 <div class="video-grid">
-                    <div class="video-item lazy-video" data-src="./assets/animation/StopMotion.mp4">
+                    <div class="video-item lazy-video" data-src="./assets/shortanimation.mp4">
                         <div class="protection-layer"></div>
                         <div class="play-icon"></div>
-                        <div class="video-info">Stop Motion Animation (by Bips)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/2D.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">2D Animation (by Board Studios)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/3Danimation.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">3D Animation (by Trial Exhibits, Inc)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/Anime.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Anime (by Evakoi)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/cel.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Cell Animation (by Jacob Docksey)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/frame.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Frame Animation (by polyolk)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/Sprite.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Sprite Animation (by Maple Riot)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/Path.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Path Animation (by reallusion)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/vector.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Vector Animation (by BoneHaus)</div>
-                    </div>
-                    <div class="video-item lazy-video" data-src="./assets/animation/character.mp4">
-                        <div class="protection-layer"></div>
-                        <div class="play-icon"></div>
-                        <div class="video-info">Character Animation (by BaM Animation)</div>
+                        <div class="video-info">Frame Animation</div>
                     </div>
                 </div>
             </section>
@@ -525,7 +480,7 @@ imageModal.addEventListener('click', function(e) {
                             videoPreview.src = element.dataset.src;
                             videoPreview.preload = 'metadata';
                             videoPreview.muted = true;
-                            videoPreview.loop = false;
+                            videoPreview.loop = true;
                             videoPreview.autoplay = false;
                             
                             // Add video preview to the item
@@ -575,8 +530,33 @@ imageModal.addEventListener('click', function(e) {
                 
                 // Tambahkan ke item galeri
                 item.appendChild(infoElement);
+                
             });
-        });
+                // Menangani event pause pada video modal
+                const expandedVideo = document.getElementById('expandedVideo');
+                if (expandedVideo) {
+                    expandedVideo.addEventListener('pause', function() {
+                        // Video di-pause, kita biarkan dalam keadaan pause
+                        this.loop = false;
+                    });
+                    
+                    expandedVideo.addEventListener('play', function() {
+                        // Video diputar kembali, aktifkan loop
+                        this.loop = true;
+                    });
+                }
+                
+                // Menerapkan hal yang sama untuk semua audio
+                document.querySelectorAll('audio').forEach(audio => {
+                    audio.addEventListener('pause', function() {
+                        this.loop = false;
+                    });
+                    
+                    audio.addEventListener('play', function() {
+                        this.loop = true;
+                    });
+                });
+                    });
     </script>
 </body>
 </html>
