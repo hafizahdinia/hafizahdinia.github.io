@@ -344,6 +344,27 @@
                     // Add active class (triggers animation)
                     imageModal.classList.add('active');
                 });
+                const imageSrc = item.getAttribute('data-src');
+                const fileExt = imageSrc.split('.').pop().toUpperCase();
+                
+                // Buat tombol download
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'download-img-btn';
+                downloadBtn.textContent = `Download ${fileExt}`;
+                downloadBtn.setAttribute('data-src', imageSrc);
+                
+                // Tambahkan ke item galeri
+                item.appendChild(downloadBtn);
+                
+                // Event listener untuk tombol download
+                downloadBtn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Mencegah modal gambar terbuka saat klik tombol
+                    const imgSrc = this.getAttribute('data-src');
+                    const link = document.createElement('a');
+                    link.href = imgSrc;
+                    link.download = imgSrc.substring(imgSrc.lastIndexOf('/') + 1);
+                    link.click();
+                });
             });
 
             // Set up click event for each video item
@@ -367,21 +388,32 @@
                     // Play video
                     expandedVideo.play();
                 });
+
+                // Tambahkan tombol download di bawah setiap video
+            const fileSrc = item.getAttribute('data-src');
+            const fileExt = fileSrc.split('.').pop().toUpperCase();
+            
+            // Buat tombol download
+            const downloadBtn = document.createElement('button');
+            downloadBtn.className = 'download-btn';
+            downloadBtn.textContent = `Download ${fileExt}`;
+            downloadBtn.setAttribute('data-src', fileSrc);
+            
+            // Tambahkan ke item video
+            item.appendChild(downloadBtn);
+            
+            // Event listener untuk tombol download
+            downloadBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // Mencegah modal video terbuka saat klik tombol
+                const videoSrc = this.getAttribute('data-src');
+                const link = document.createElement('a');
+                link.href = videoSrc;
+                link.download = videoSrc.substring(videoSrc.lastIndexOf('/') + 1);
+                link.click();
+            });
             });
                 // Tambah click download untuk gallery image
                 document.querySelectorAll('.gallery-item').forEach(item => {
-                    item.addEventListener('contextmenu', function(e) {
-                        e.preventDefault();
-                        const fileSrc = this.getAttribute('data-src');
-                        const link = document.createElement('a');
-                        link.href = fileSrc;
-                        link.download = fileSrc.substring(fileSrc.lastIndexOf('/') + 1);
-                        link.click();
-                    });
-                });
-
-                // Tambah click download untuk video item
-                document.querySelectorAll('.video-item').forEach(item => {
                     item.addEventListener('contextmenu', function(e) {
                         e.preventDefault();
                         const fileSrc = this.getAttribute('data-src');
@@ -555,6 +587,20 @@ imageModal.addEventListener('click', function(e) {
                     audio.addEventListener('play', function() {
                         this.loop = true;
                     });
+                    const source = audio.querySelector('source');
+                    if (source) {
+                        const audioSrc = source.src;
+                        const fileExt = audioSrc.split('.').pop().toUpperCase();
+                        
+                        // Buat tombol download
+                        const downloadBtn = document.createElement('button');
+                        downloadBtn.className = 'download-audio-btn';
+                        downloadBtn.textContent = `Download ${fileExt}`;
+                        downloadBtn.setAttribute('data-src', audioSrc);
+                        
+                        // Sisipkan tombol setelah elemen audio
+                        audio.parentNode.insertBefore(downloadBtn, audio.nextSibling);
+                    }
                 });
                     });
     </script>
