@@ -344,6 +344,8 @@
                     // Add active class (triggers animation)
                     imageModal.classList.add('active');
                 });
+
+
                 const imageSrc = item.getAttribute('data-src');
                 const fileExt = imageSrc.split('.').pop().toUpperCase();
                 
@@ -356,9 +358,23 @@
                 // Tambahkan ke item galeri
                 item.appendChild(downloadBtn);
                 
-                // Event listener untuk tombol download
+                // Event listener dengan perbaikan untuk mobile
                 downloadBtn.addEventListener('click', function(e) {
-                    e.stopPropagation(); // Mencegah modal gambar terbuka saat klik tombol
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    const imgSrc = this.getAttribute('data-src');
+                    const link = document.createElement('a');
+                    link.href = imgSrc;
+                    link.download = imgSrc.substring(imgSrc.lastIndexOf('/') + 1);
+                    link.click();
+                });
+                
+                // Touch event untuk mobile
+                downloadBtn.addEventListener('touchend', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
                     const imgSrc = this.getAttribute('data-src');
                     const link = document.createElement('a');
                     link.href = imgSrc;
@@ -390,27 +406,41 @@
                 });
 
                 // Tambahkan tombol download di bawah setiap video
-            const fileSrc = item.getAttribute('data-src');
-            const fileExt = fileSrc.split('.').pop().toUpperCase();
-            
-            // Buat tombol download
-            const downloadBtn = document.createElement('button');
-            downloadBtn.className = 'download-btn';
-            downloadBtn.textContent = `Download ${fileExt}`;
-            downloadBtn.setAttribute('data-src', fileSrc);
-            
-            // Tambahkan ke item video
-            item.appendChild(downloadBtn);
-            
-            // Event listener untuk tombol download
-            downloadBtn.addEventListener('click', function(e) {
-                e.stopPropagation(); // Mencegah modal video terbuka saat klik tombol
-                const videoSrc = this.getAttribute('data-src');
-                const link = document.createElement('a');
-                link.href = videoSrc;
-                link.download = videoSrc.substring(videoSrc.lastIndexOf('/') + 1);
-                link.click();
-            });
+                const fileSrc = item.getAttribute('data-src');
+                const fileExt = fileSrc.split('.').pop().toUpperCase();
+                
+                // Buat tombol download
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'download-btn';
+                downloadBtn.textContent = `Download ${fileExt}`;
+                downloadBtn.setAttribute('data-src', fileSrc);
+                
+                // Tambahkan ke item video
+                item.appendChild(downloadBtn);
+                
+                // Event listener dengan perbaikan untuk mobile
+                downloadBtn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Mencegah modal video terbuka
+                    e.preventDefault(); // Mencegah default behavior
+                    
+                    const videoSrc = this.getAttribute('data-src');
+                    const link = document.createElement('a');
+                    link.href = videoSrc;
+                    link.download = videoSrc.substring(videoSrc.lastIndexOf('/') + 1);
+                    link.click();
+                });
+                
+                // Tambahkan touch event untuk mobile
+                downloadBtn.addEventListener('touchend', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    const videoSrc = this.getAttribute('data-src');
+                    const link = document.createElement('a');
+                    link.href = videoSrc;
+                    link.download = videoSrc.substring(videoSrc.lastIndexOf('/') + 1);
+                    link.click();
+                });
             });
                 // Tambah click download untuk gallery image
                 document.querySelectorAll('.gallery-item').forEach(item => {
@@ -587,9 +617,10 @@ imageModal.addEventListener('click', function(e) {
                     audio.addEventListener('play', function() {
                         this.loop = true;
                     });
+                    
                     const source = audio.querySelector('source');
                     if (source) {
-                        const audioSrc = source.src;
+                        const audioSrc = source.getAttribute('src');
                         const fileExt = audioSrc.split('.').pop().toUpperCase();
                         
                         // Buat tombol download
@@ -600,9 +631,64 @@ imageModal.addEventListener('click', function(e) {
                         
                         // Sisipkan tombol setelah elemen audio
                         audio.parentNode.insertBefore(downloadBtn, audio.nextSibling);
+                        
+                        // Event listener dengan perbaikan untuk mobile
+                        downloadBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            
+                            const audioSrc = this.getAttribute('data-src');
+                            const link = document.createElement('a');
+                            link.href = audioSrc;
+                            link.download = audioSrc.substring(audioSrc.lastIndexOf('/') + 1);
+                            link.click();
+                        });
+                        
+                        // Touch event untuk mobile
+                        downloadBtn.addEventListener('touchend', function(e) {
+                            e.preventDefault();
+                            
+                            const audioSrc = this.getAttribute('data-src');
+                            const link = document.createElement('a');
+                            link.href = audioSrc;
+                            link.download = audioSrc.substring(audioSrc.lastIndexOf('/') + 1);
+                            link.click();
+                        });
                     }
+                                    
                 });
                     });
+        
+                // Deteksi iOS
+            function isIOS() {
+                return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            }
+
+            // Modifikasi fungsi download untuk iOS
+            function handleDownload(fileUrl, fileName) {
+                // Jika iOS, beri tahu pengguna untuk menyimpan manual
+                if (isIOS()) {
+                    // Buka file di tab baru, pengguna bisa menyimpan dari sana
+                    window.open(fileUrl, '_blank');
+                    alert('Pada iOS: Tekan dan tahan file, lalu pilih "Simpan" untuk mendownload');
+                } else {
+                    // Metode download normal untuk browser lain
+                    const link = document.createElement('a');
+                    link.href = fileUrl;
+                    link.download = fileName;
+                    link.click();
+                }
+            }
+
+            // Kemudian gunakan fungsi handleDownload di semua event listener download
+            // Contoh: ganti kode di event listener tombol download 
+            downloadBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                
+                const fileSrc = this.getAttribute('data-src');
+                const fileName = fileSrc.substring(fileSrc.lastIndexOf('/') + 1);
+                handleDownload(fileSrc, fileName);
+            });
     </script>
 </body>
 </html>

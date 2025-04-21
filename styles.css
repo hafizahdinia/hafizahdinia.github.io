@@ -509,19 +509,21 @@ h1{
     background-color: #500028;
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
     margin-top: 5px;
-    font-size: 12px;
+    font-size: 14px;
     transition: background-color 0.3s ease;
     z-index: 10;
     position: relative;
+    display: inline-block;
+    text-align: center;
 }
 
 .download-btn {
     position: absolute;
-    bottom: 40px; /* Posisikan di atas video info */
+    bottom: 40px;
     left: 10px;
 }
 
@@ -531,11 +533,39 @@ h1{
     left: 10px;
 }
 
+.download-audio-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 8px 0 15px;
+}
+
+/* Hover state */
 .download-btn:hover, .download-audio-btn:hover, .download-img-btn:hover {
     background-color: #ff8c3a;
 }
 
 /* PHONE */
+@media screen and (max-width: 768px) {
+    .download-btn, .download-audio-btn, .download-img-btn {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+    
+    .download-btn {
+        bottom: 45px;
+    }
+    
+    .download-img-btn {
+        bottom: 15px;
+    }
+    
+    .download-audio-btn {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0 20px;
+    }
+}
 @media screen and (max-width: 768px) {
     .gallery-grid {
       grid-template-columns: repeat(2, 1fr);
